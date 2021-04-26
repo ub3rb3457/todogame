@@ -1,0 +1,1 @@
+after using a few different apps attempting to *"game-ify"* task manangement and project planning, i decided to build my own as an exercise to get better at react with node 
