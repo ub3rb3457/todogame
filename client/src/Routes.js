@@ -1,8 +1,8 @@
 import React from 'react'
-import Dashboard from './Pages/Dashboard'
+import Home from './Pages/Home'
 
 const Routes = {
-  '/' :()=><Dashboard />,
+  '/' :()=><Home />,
 }
 
 export default Routes

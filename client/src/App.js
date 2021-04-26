@@ -1,8 +1,6 @@
 import React from 'react'
 import { A,useRoutes } from "hookrouter"
 import Routes from './Routes'
-import TitleBar from './Pages/Components/TitleBar'
-
 //import useStore from './hooks/useStore'
 
 
@@ -12,7 +10,6 @@ const App = () => {
   
   return (
     <>
-      <TitleBar />
       {routeResults || <p>sorry charlie</p>}
     </>
   )
