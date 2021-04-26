@@ -6,7 +6,7 @@
   "scripts": {
     "client": "npm start --prefix client",
     "server": "node server.js",
-    "api": "cd api && npm run dev",
+    "api": "cd api && json-server --watch db.json --port 3004",
     "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run api\"",
     "noapi": "concurrently \"npm run server\" \"npm run client\""
   },
@@ -15,6 +15,7 @@
   "dependencies": {
     "concurrently": "^6.0.0",
     "express": "^4.16.4",
+    "json-server": "^0.16.3",
     "mongoose": "^5.12.3",
     "socket.io": "^2.4.1"
   }
