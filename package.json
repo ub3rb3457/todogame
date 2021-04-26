@@ -1,7 +1,7 @@
 {
   "name": "todo-game",
   "version": "1.0.0",
-  "description": "Serves Serial Data using WebSockets",
+  "description": "use tasks to establish habits and build skills",
   "main": "index.js",
   "scripts": {
     "client": "npm start --prefix client",
