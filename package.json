@@ -1,0 +1,26 @@
+{
+  "name": "RealTimeSerialDataServer",
+  "version": "1.0.0",
+  "description": "Serves Serial Data using WebSockets",
+  "main": "index.js",
+  "scripts": {
+    "client": "npm start --prefix client",
+    "server": "node server.js",
+    "api": "cd api && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run api\"",
+    "noapi": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "b3457m0d3",
+  "license": "MPL-2.0",
+  "dependencies": {
+    "concurrently": "^6.0.0",
+    "debounce": "^1.2.1",
+    "eventemitter3": "^4.0.7",
+    "express": "^4.16.4",
+    "linebyline": "^1.3.0",
+    "mongoose": "^5.12.3",
+    "serialport": "^9.0.7",
+    "socket.io": "^2.4.1",
+    "throttle-stream": "^0.0.8"
+  }
+}
