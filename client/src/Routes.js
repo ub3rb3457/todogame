@@ -1,8 +1,8 @@
 import React from 'react'
-import Home from './Pages/Home'
+import Test from './Pages/Components/Test'
 
 const Routes = {
-  '/' :()=><Home />,
+  '/' :()=><Test />,
 }
 
 export default Routes

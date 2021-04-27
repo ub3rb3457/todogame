@@ -1,8 +1,7 @@
 import React from 'react'
-import { A,useRoutes } from "hookrouter"
+import { useRoutes } from "hookrouter"
 import Routes from './Routes'
 //import useStore from './hooks/useStore'
-
 
 const App = () => {
   const routeResults = useRoutes(Routes)
