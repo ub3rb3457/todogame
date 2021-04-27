@@ -1,8 +1,10 @@
 import React from 'react'
-import Test from './Pages/Components/Test'
+import Layout from './Pages/Components/Layout'
+import Tasks from './Pages/Components/Tasks'
 
 const Routes = {
-  '/' :()=><Test />,
+  '/' :()=><Layout />,
+  '/tasks' :()=><Tasks />
 }
 
 export default Routes

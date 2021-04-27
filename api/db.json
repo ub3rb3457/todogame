@@ -1,8 +1,15 @@
 {
-    "people": [
+    "tasks": [
         {
             "id":0,
-            "name":"jessie"
+            "name":"first task",
+            "done":false
+
+        },
+        {
+            "id":1,
+            "name":"booyah",
+            "done":true
         }
     ]
 }
