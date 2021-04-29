@@ -10,6 +10,8 @@ import Chip from '@material-ui/core/Chip';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Avatar } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -47,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
   
-  const TaskOptions = (props) => {
+  const Task = (props) => {
       const classes = useStyles()
       return (
         <Accordion>
@@ -57,7 +59,14 @@ const useStyles = makeStyles((theme) => ({
                 id="panel1c-header"
             >
                 <div className={classes.column}>
-                    <Typography className={classes.heading}>{props.data.name}</Typography>
+                    <Grid container spacing={2}>
+                        <Grid item>
+                            <Avatar>{props.name.substr(0,1)}</Avatar>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="h5" gutterBottom>{props.name}</Typography>
+                        </Grid>
+                    </Grid>
                 </div>
                 <div className={classes.column}>
                     <Typography className={classes.secondaryHeading}>Select trip destination</Typography>
@@ -70,11 +79,7 @@ const useStyles = makeStyles((theme) => ({
                 </div>
                 <div className={clsx(classes.column, classes.helper)}>
                     <Typography variant="caption">
-                    Select your destination of choice
-                    <br />
-                    <a href="#secondary-heading-and-columns" className={classes.link}>
-                        Learn more
-                    </a>
+                    
                     </Typography>
                 </div>
             </AccordionDetails>
@@ -87,5 +92,5 @@ const useStyles = makeStyles((theme) => ({
     )
 }
   
-export default TaskOptions
+export default Task
   

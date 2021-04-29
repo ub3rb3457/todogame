@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { Container } from '@material-ui/core';
 import MenuDrawer from './MenuDrawer'
 import BottomBar from './BottomBar';
-import Tasks from './Tasks';
-import { Container } from '@material-ui/core';
+import TaskList from './TaskList';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,7 +28,7 @@ export default function Layout() {
       <CssBaseline />
       <MenuDrawer open={open} toggleDrawer={toggleDrawer} />
       <Container>
-        <Tasks />
+        <TaskList />
       </Container>
       <BottomBar toggleDrawer={toggleDrawer} />
     </div>
