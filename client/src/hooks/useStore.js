@@ -1,8 +1,4 @@
-import create from 'zustand'
-
-const useStore = create((set) => ({
-  count: 1,
-  inc: () => set((state) => ({ count: state.count + 1 }))
-}))
-
+import { useState } from 'react'
+import create from 'zusteller'
+const useStore = create(() => useState(false))
 export default useStore

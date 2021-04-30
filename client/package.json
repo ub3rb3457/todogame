@@ -1,7 +1,7 @@
 {
-  "name": "PIDUX",
+  "name": "todogame",
   "version": "0.1.0",
-  "description": "Touchscreen interface for PID controller",
+  "description": "",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
@@ -15,6 +15,7 @@
     "canvasjs": "^1.8.3",
     "chart.js": "^2.9.4",
     "clsx": "^1.1.1",
+    "customize-cra": "^1.0.0",
     "debounce": "^1.2.1",
     "dotenv": "^8.2.0",
     "fg-loadcss": "^3.1.0",
@@ -42,12 +43,13 @@
     "styled-components": "^5.2.3",
     "use-axios-request": "^0.4.0",
     "use-socket.io-client": "^1.1.0",
-    "zustand": "^3.4.1"
+    "zustand": "^3.4.1",
+    "zusteller": "^0.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
@@ -77,6 +79,8 @@
     "@storybook/addon-links": "^6.2.8",
     "@storybook/node-logger": "^6.2.8",
     "@storybook/preset-create-react-app": "^3.1.7",
-    "@storybook/react": "^6.2.8"
+    "@storybook/react": "^6.2.8",
+    "react-app-rewire-alias": "^1.0.3",
+    "react-app-rewired": "^2.1.8"
   }
 }
