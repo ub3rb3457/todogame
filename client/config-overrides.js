@@ -1,10 +1,11 @@
-import {override, addWebpackAlias} from 'customize-cra'
+const {override, addWebpackAlias} = require('customize-cra')
 const path = require('path')
-const resolvePath = (location) => { return path.resolve(__dirname,location) }
+const resolvePath = (location) => { return path.resolve(__dirname,`./src/${location}`) }
 module.exports = override(
     addWebpackAlias({
-        ['@Components']: resolvePath('./src/Components'),
-        ['@hooks']:      resolvePath('./src/hooks'),
-        ['@helpers']:    resolvePath('./src/helpers')
+        ['@Components']: resolvePath('Components'),
+        ['@hooks']:      resolvePath('hooks'),
+        ['@Utils']:      resolvePath('Utilities'),
+        ['@Store']:      resolvePath('hooks/useStore')
     })
 )

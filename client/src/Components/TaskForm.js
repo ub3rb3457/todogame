@@ -1,35 +1,39 @@
-import React from "react";
-import axios from 'axios'
-import { makeUseAxios } from "axios-hooks";
-import { useForm,FormProvider } from "react-hook-form";
-import FormInput from './FormInput'
-import { Button } from "@material-ui/core";
+import React, { useState } from 'react'
+import {useForm} from 'react-hook-form'
+import {Button, CircularProgress, ClickAwayListener} from '@material-ui/core'
+import SaveIcon from '@material-ui/icons/Save'
+import useAPI from '@hooks/useAPI'
 
-const useAxios = makeUseAxios({
-    axios: axios.create({ baseURL: 'http://localhost:3004' })
-})
-
-function TaskForm(props) {
-  const methods = useForm();
-  const { handleSubmit } = methods;
-  
-  //=================PUT
-  const [{ loading, error }, addTask] = useAxios({ url: '/tasks', method: 'PUT' },{ manual: true })
-  const onSubmit = (formData) => { addTask({ data: formData })};
-  
-  //===================
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error!</p>;
-
-  return (
-    <div>
-      <FormProvider {...methods}>
-        <form>
-          <FormInput name="task" label="State your objective..." />
-          <Button onClick={handleSubmit(onSubmit)}>Submit</Button>
-        </form>
-      </FormProvider>
-    </div>
-  );
+const Task = ({ task }) => {
+    const [isEditing, setEditing] = useState(false)
+    const { handleSubmit, control } = useForm()
+    const [{ loading: savingTask, error: saveError }, saveTask] = useAPI({ url: `/tasks/${task.id}`, method: 'PUT' }, { manual: true })
+    const onSubmit = (data) => { 
+        saveTask({ 
+            data: { 
+                ...task,
+                name: data.name,
+                updated: new Date().toISOString() 
+            } 
+        }) 
+    }
+    const inputOptions = { name: "name", rules: { required: 'Name is required' } }
+    if(savingTask || saveError) return <CircularProgress />
+    return (
+        <>
+            { isEditing ? (
+                <form onSubmit={e=>e.preventDefault()}>
+                    <Input 
+                        control={control} 
+                        options={inputOptions} 
+                    />
+                    <Button onClick={handleSubmit(onSubmit)}><SaveIcon/></Button>
+                </form>
+            ) : (
+                <p onDoubleClick={dblClickHandler}>{task.name}</p>
+            )}
+        </>
+        
+    )
 }
-export default TaskForm
+export default Task
