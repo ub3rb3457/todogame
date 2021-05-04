@@ -2,7 +2,7 @@ import React from 'react'
 import Tasks from '@Pages/Tasks'
 
 const Routes = {
-  '/' :()=><Tasks />
+  '/'     :()=><Tasks />
 }
 
 export default Routes

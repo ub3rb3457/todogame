@@ -8,6 +8,7 @@ module.exports = override(
         ['@Utils']      : resolvePath('Utilities'),
         ['@Stores']     : resolvePath('Stores'),
         ['@Models']     : resolvePath('Models'),
-        ['@Pages']      : resolvePath('Pages')
+        ['@Pages']      : resolvePath('Pages'),
+        ['@help']       : resolvePath('helpers')
     })
 )
