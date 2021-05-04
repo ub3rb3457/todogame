@@ -1,9 +1,8 @@
 import React from 'react'
 import { action, useLocalStore } from 'easy-peasy'
-import {useForm, Controller} from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import {ClickAwayListener, InputAdornment, TextField} from '@material-ui/core'
 import Visibility from '@material-ui/icons/Visibility'
-
 
 const Task = ({ task }) => {
     //state
@@ -16,9 +15,9 @@ const Task = ({ task }) => {
     //form
     const { handleSubmit, control } = useForm()
     const onSubmit = (data) => { 
+        actions.updateTask(data)
         actions.toggleEditor()
     }
-
 
     return (
         <>

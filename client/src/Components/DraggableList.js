@@ -1,5 +1,5 @@
 import React from 'react'
-import { DragDropContext, Droppable} from 'react-beautiful-dnd'
+import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import DraggableListItem from './DraggableListItem'
 
 const DraggableList = React.memo(({ items, onDragEnd }) => {

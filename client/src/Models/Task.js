@@ -1,6 +1,6 @@
-import { action, createContextStore } from 'easy-peasy'
 import _ from 'lodash'
-const TaskStore = createContextStore({
+import { action } from 'easy-peasy' 
+const TaskModel = {
     tasks: [
         {
             "name": "aha",
@@ -104,14 +104,16 @@ const TaskStore = createContextStore({
         state.tasks.push(payload)
     }),
     updateTask: action((state,payload) => {
-
+        console.log(payload)
+        //let task = _.find(state.tasks,{'id':payload.id})
+        //_.assign(task,)
     }),
     removeTask: action((state,payload) => {
         state.tasks = _.omitBy(state.tasks,)
     }),
     setItems: action((state,payload)=>{
         state.tasks = payload
-    })
+    }),
 
-})
-export default TaskStore
+}
+export default TaskModel

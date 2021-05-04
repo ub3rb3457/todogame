@@ -6,6 +6,8 @@
   "homepage": "http://ub3rb3457.github.io/todogame",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@hookform/error-message": "^2.0.0",
@@ -47,6 +49,7 @@
     "react-swipeable-views": "^0.13.9",
     "react-use": "^17.2.1",
     "recharts": "^2.0.9",
+    "redux-persist": "^6.0.0",
     "socket.io-client": "^2.2.0",
     "storybook-addon-material-ui": "*",
     "typescript": "^4.2.4",
