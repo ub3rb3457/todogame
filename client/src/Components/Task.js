@@ -1,62 +1,57 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { action, useLocalStore } from 'easy-peasy'
 import {useForm, Controller} from 'react-hook-form'
-import _ from 'lodash'
-import {CircularProgress, ClickAwayListener, TextField} from '@material-ui/core'
-import useAPI from '@hooks/useAPI'
-import useStore from '@Store'
-import { capitalize } from '@Utils'
+import {ClickAwayListener, InputAdornment, TextField} from '@material-ui/core'
+import Visibility from '@material-ui/icons/Visibility';
 
-const Task = ({ id }) => {
-    const [isEditing, setEditing] = useState(false)
-    const state = useStore()
-    const thisTask = _.find(state.tasks,{'id':id})
-    const [value, setValue] = useState(thisTask.name)
-    const toggleEditor = () => setEditing(!isEditing) 
-    const { handleSubmit, control } = useForm()
-    const [{ loading: savingTask, error: saveError }, updateTask] = useAPI({ url: `/tasks/${id}`, method: 'PUT' }, { manual: true })
-    const saveTask = (data) => { 
-        updateTask({ 
-            data: Object.assign( thisTask, {
-                name: data.name,
-                updated: new Date().toISOString() 
-            }) 
-        }) 
-        toggleEditor()
-    }
-    const handleChange = e => setValue(e.target.value)
+const Task = ({ task }) => {
+    const [state,actions] = useLocalStore(
+        () => ({
+            task, 
+            setText: action((_state, payload) => {
+                _state.task.name = payload;
+            }),
+            isEditing: false,
+            toggleEditor: action((_state) => {
+                _state.isEditing = !_state.isEditing
+            })
+        }),
+        [task],
+    )
+    const { handleSubmit, control, getValues } = useForm()
+    const onSubmit = () => { console.log(getValues()) }
+    
     return (
         <>  
-            { savingTask && <CircularProgress /> }
-            { isEditing ? (
-                <ClickAwayListener onClickAway={toggleEditor}>
-                    <form onSubmit={handleSubmit(saveTask)} noValidate>
+            { state.isEditing ? (
+                <ClickAwayListener onClickAway={actions.toggleEditor}>
+                    <form onSubmit={handleSubmit(onSubmit)} noValidate>
                         <Controller 
                             name="name"
                             control={control}
-                            defaultValue={value}
+                            defaultValue={state.task.name}
                             rules={{ required: 'Name is required' }}
                             render={(({ fieldState: { error } }) => (
                                 <TextField
-                                    inputRef={(input) => {
-                                        if(input != null) { input.focus() }
-                                    }}
-                                    label={capitalize(thisTask.name)}
+                                    inputRef={(input) => ((input != null) &&  input.focus() )}
+                                    label="Task name"
                                     variant="standard"
                                     error={!!error}
                                     helperText={error ? error.message : null}
-                                    onChange={handleChange}
-                                    value={value}
+                                    onChange={(e)=>{actions.setText(e.target.value)}}
+                                    value={state.task.name}
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position="start"><Visibility /></InputAdornment>,
+                                    }}
                                 />
                             ))}
-
-                        />
+                        />                     
                     </form>
                 </ClickAwayListener>
             ) : (
-                <p onDoubleClick={toggleEditor}>{thisTask.name}</p>
+                <p onDoubleClick={actions.toggleEditor}>{state.task.name}</p>
             )}
         </>
-        
     )
 }
 export default Task

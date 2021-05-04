@@ -1,16 +1,13 @@
 import React from 'react'
-import { useRoutes } from "hookrouter"
+import { useRoutes } from 'hookrouter'
 import Routes from './Routes'
-//import useStore from './hooks/useStore'
 
 const App = () => {
-  const routeResults = useRoutes(Routes)
-  //const { count, inc } = useStore()
-  
+  const routeResults = useRoutes(Routes)  
   return (
     <>
       {routeResults || <p>sorry charlie</p>}
     </>
   )
 }
-export default App;
+export default App

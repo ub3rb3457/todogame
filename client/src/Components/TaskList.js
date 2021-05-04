@@ -1,20 +1,16 @@
 import React from "react";
-import useAPI from '@hooks/useAPI'
-import useStore from '@Store'
+import TaskStore from '@Stores/TaskStore'
 import Task from './Task'
 
 const TaskList = () => {
-    const [{ data, loading, error }] = useAPI("/tasks")
-    const state = useStore()
-    if (loading) return <p>Loading...</p>
-    if (error) return <p>Error!</p>
-    state.set(state => { state.tasks = data })
+    const tasks = TaskStore.useStoreState(state => state.tasks)
     return (
         <>  
-            { state.tasks.map(({ id }) => (
+            { tasks.map(( task ) => (
                 <Task 
-                    key={id} 
-                    id={id}
+                    key={task.id} 
+                    id={task.id}
+                    task={task}
                 />
             )) }
         </>
