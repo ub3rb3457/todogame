@@ -111,7 +111,7 @@ const TaskModel = {
     removeTask: action((state,payload) => {
         state.tasks = _.omitBy(state.tasks,)
     }),
-    setItems: action((state,payload)=>{
+    setTasks: action((state,payload)=>{
         state.tasks = payload
     }),
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStoreState, useStoreActions } from 'easy-peasy'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import Paper from '@material-ui/core/Paper'
+import { Container, CssBaseline, Paper } from '@material-ui/core'
 import DraggableList from '@Components/DraggableList'
 import { reorder } from '@help'
 
@@ -12,21 +12,26 @@ const useStyles = makeStyles({
 
 const TaskList = () => {
   const classes = useStyles()
-  const items = useStoreState(state=>state.tasks)
-  const setItems = useStoreActions(actions=>actions.setItems)
+  const tasks = useStoreState(state=>state.tasks)
+  const setTasks = useStoreActions(actions=>actions.setTasks)
 
   const onDragEnd = ({ destination, source }) => {
     if (!destination) return
-    const newItems = reorder(items, source.index, destination.index)
-    setItems(newItems)
+    const reorderedTasks = reorder(tasks, source.index, destination.index)
+    setTasks(reorderedTasks)
   }
 
   return (
-    <div className={classes.root}>
-      <Paper className={classes.flexPaper}>
-        <DraggableList items={items} onDragEnd={onDragEnd} />
-      </Paper>
-    </div>
+    <>
+      <CssBaseline />
+      <Container> 
+        <div className={classes.root}>
+          <Paper className={classes.flexPaper}>
+            <DraggableList tasks={tasks} onDragEnd={onDragEnd} />
+          </Paper>
+        </div>
+      </Container>
+    </>
   )
 }
 export default TaskList
