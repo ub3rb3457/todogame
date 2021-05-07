@@ -1,9 +1,9 @@
 import React from 'react'
-import Tasks from '@Pages/Tasks'
+import TaskList from '@Pages/TaskList'
 import SignUp from '@Components/SignUp'
 
 const Routes = {
-  '/'       :()=><Tasks />,
+  '/'       :()=><TaskList />,
   '/signup' :()=><SignUp />
 }
 

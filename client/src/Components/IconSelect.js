@@ -21,10 +21,10 @@ const StyledMenuItem = withStyles((theme) => ({
       backgroundColor: theme.palette.primary.main,
       '& .MuiListItemIcon-root, & .MuiListItemText-primary': { color: theme.palette.common.white, },
     },
-       },
+  },
 }))(MenuItem)
 
-const CustomizedMenus  = () => {
+const IconSelect = () => {
   const [anchorEl, setAnchorEl] = useState(null)
   const handleClick = (event) => setAnchorEl(event.currentTarget)
   const handleClose = () => setAnchorEl(null)
@@ -69,3 +69,4 @@ const CustomizedMenus  = () => {
     </>
   )
 }
+export default IconSelect

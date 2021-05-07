@@ -35,7 +35,6 @@ const DraggableListItem = ({ task, index }) => {
                 className={snapshot.isDragging ? classes.draggingListItem : ''}
             >
                 <ListItemAvatar> <Avatar> <IconSelect /> </Avatar></ListItemAvatar>
-                
                 { state.isEditing ? (
                     <ClickAwayListener onClickAway={actions.toggleEditor}>
                         <form onSubmit={e=>handleSubmit(onSubmit,e)} noValidate>
@@ -53,9 +52,7 @@ const DraggableListItem = ({ task, index }) => {
                                         helperText={error ? error.message : null}
                                         onChange={(e)=>{actions.setText(e.target.value)}}
                                         value={state.task.name}
-                                        InputProps={{
-                                            endAdornment: <InputAdornment position="end"> (X) </InputAdornment>,
-                                        }}
+                                        InputProps={{ endAdornment: <InputAdornment position="end"> (X) </InputAdornment> }}
                                     />
                                 ))}
                             />                     

@@ -10,5 +10,8 @@ module.exports = override(
         ['@Models']     : resolvePath('Models'),
         ['@Pages']      : resolvePath('Pages'),
         ['@help']       : resolvePath('helpers')
-    })
+    }),
 )
+/*const {override, addBabelPlugins} = require('customize-cra')
+
+    */

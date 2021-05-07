@@ -3,6 +3,8 @@ import { useStoreState, useStoreActions } from 'easy-peasy'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import { Container, CssBaseline, Paper } from '@material-ui/core'
 import DraggableList from '@Components/DraggableList'
+import LoginButton from '@Components/LoginButton'
+import LogoutButton from '@Components/LogoutButton'
 import { reorder } from '@help'
 
 const useStyles = makeStyles({
@@ -12,6 +14,7 @@ const useStyles = makeStyles({
 
 const TaskList = () => {
   const classes = useStyles()
+  const { user, isAuthenticated } = useAuth0();
   const tasks = useStoreState(state=>state.tasks)
   const setTasks = useStoreActions(actions=>actions.setTasks)
 
