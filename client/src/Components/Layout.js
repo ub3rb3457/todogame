@@ -4,7 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { Container } from '@material-ui/core';
 import MenuDrawer from './MenuDrawer'
 import BottomBar from './BottomBar';
-import TaskList from './TaskList';
+import TaskList from '@Pages/TaskList';
 
 const useStyles = makeStyles((theme) => ({
   root: {

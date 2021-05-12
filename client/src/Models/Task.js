@@ -109,7 +109,7 @@ const TaskModel = {
         //_.assign(task,)
     }),
     removeTask: action((state,payload) => {
-        state.tasks = _.omitBy(state.tasks,)
+        _.remove(state.tasks,(value,index)=>{})
     }),
     setTasks: action((state,payload)=>{
         state.tasks = payload
