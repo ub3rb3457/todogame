@@ -13,35 +13,19 @@ import { useAuth0 } from '@auth0/auth0-react';
 import LinkButton from '@Components/LinkButton';
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import Grid from "@material-ui/core/Grid";
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-
-
 
 const useStyles = makeStyles((theme) => ({
-    appBar: {
-        top: 'auto',
-        bottom: 0,
-        flexGrow: 1
-    },
-    menuButton: {
-        marginRight: theme.spacing(2),
-    },
-    title: {
-        flexGrow: 1
-    }
+    appBar: { flexGrow: 1 },
+    menuButton: { marginRight: theme.spacing(2) },
+    title: { flexGrow: 1 }
 }))   
 function BottomBar(props) {
     const classes = useStyles();
     const { isAuthenticated,user,loginWithRedirect,logout } = useAuth0();
     const [anchorEl, setAnchorEl] = useState(null);
     const isMenuOpen = Boolean(anchorEl);
-
-    const handleProfileMenuOpen = (event) => {
-        setAnchorEl(event.currentTarget);
-    }
-    const handleMenuClose = () => {
-        setAnchorEl(null);
-    }
+    const handleProfileMenuOpen = (event) => { setAnchorEl(event.currentTarget) }
+    const handleMenuClose = () => { setAnchorEl(null) }
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
@@ -90,6 +74,7 @@ function BottomBar(props) {
                     )}                
                 </Toolbar>
             </AppBar>
+           
             {renderMenu}
             </>
         )
