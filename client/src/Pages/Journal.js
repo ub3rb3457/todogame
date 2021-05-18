@@ -1,10 +1,10 @@
 import React, {useEffect, useContext} from 'react'
 import axios from "axios"
 import { Context } from './Store'
-import Entry from './Entry'
+import EntryModel from '@Models/Entry'
 
 const Journal = () => {
-    const [state, dispatch] = useContext(Context)
+    
 
     useEffect(() => {
         axios.get('/entries').then(response => {

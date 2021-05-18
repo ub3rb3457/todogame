@@ -4,9 +4,9 @@ import Drawer from '@material-ui/core/Drawer';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import ListItemLink from '@Components/ListItemLink';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTasks } from '@fortawesome/free-solid-svg-icons'
 
@@ -31,9 +31,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const MenuDrawer = (props) => {
-    const classes = useStyles();
-
-    
+    const classes = useStyles(); 
 
     return (
         <Drawer
@@ -47,33 +45,17 @@ const MenuDrawer = (props) => {
             <Toolbar />
             <div className={classes.drawerContainer}>
                 <List>
-                    <ListItem button key="tasks">
+                    <ListItemLink key="tasks" href="/tasks">
                         <ListItemIcon><FontAwesomeIcon icon={faTasks} size="lg" /></ListItemIcon>
                         <ListItemText primary="Tasks" />
-                    </ListItem>
-                    <ListItem button key="">
-                        <ListItemIcon>{}</ListItemIcon>
-                        <ListItemText primary="" />
-                    </ListItem>
-                    <ListItem button key="">
-                        <ListItemIcon>{}</ListItemIcon>
-                        <ListItemText primary="" />
-                    </ListItem>
+                    </ListItemLink>
                 </List>
                 <Divider />
                 <List>
-                    <ListItem button key="">
-                        <ListItemIcon>{}</ListItemIcon>
-                        <ListItemText primary="" />
-                    </ListItem>
-                    <ListItem button key="">
-                        <ListItemIcon>{}</ListItemIcon>
-                        <ListItemText primary="" />
-                    </ListItem>
-                    <ListItem button key="">
-                        <ListItemIcon>{}</ListItemIcon>
-                        <ListItemText primary="" />
-                    </ListItem>
+                    <ListItemLink key="tasks" href="/tasks">
+                        <ListItemIcon><FontAwesomeIcon icon={faTasks} size="lg" /></ListItemIcon>
+                        <ListItemText primary="Tasks" />
+                    </ListItemLink>
                 </List>
             </div>
         </Drawer>

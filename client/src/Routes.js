@@ -1,11 +1,10 @@
 import React from 'react'
-//import TaskList from '@Pages/TaskList'
-import AuthTest from '@Components/AuthTest'
 import Layout from '@Components/Layout'
+import New1 from '@Components/New1'
 
 const Routes = {
-  '/tasks'       :()=><Layout />,
-  '/'            :()=><AuthTest />
+  '/'            :()=><Layout />,
+  '/tasks'       :()=><New1 />
 }
 
 export default Routes
